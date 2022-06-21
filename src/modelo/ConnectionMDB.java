@@ -13,7 +13,7 @@ import java.sql.DriverManager;
  * @author dali
  */
 public class ConnectionMDB {
-    public static final String URL = "jdbc:mysql://localhost:3306/cardio_d?autoReconnet=true&useSSL=false";
+    public static final String URL = "jdbc:mysql://localhost:3306/monitoreo_trabajo?autoReconnet=true&useSSL=false";
    // public static final String user = "adrian";
     public static final String user = "root";
     public static final String password = "1234";

@@ -272,7 +272,7 @@ public class Login extends javax.swing.JFrame {
         String password = String.valueOf(jPasswordField.getPassword());
 
         //create a select query to heck if the username and the password exist in the database
-        String query ="SELECT * FROM users WHERE username = ? AND password = ? ";
+        String query ="SELECT * FROM administrador WHERE nombre = ? AND contrasena = ? ";
 
         try {
             ConnectionMDB con = new ConnectionMDB();
@@ -284,8 +284,8 @@ public class Login extends javax.swing.JFrame {
             rs = ps.executeQuery();
             if(rs.next()){
                 System.out.println("kkk");
-                //MainMenu menu = new MainMenu();
-                //menu.setVisible(true);
+                Main menu = new Main();
+                menu.setVisible(true);
 
                 /*Register register = new Register();
                 register.setVisible(true);
