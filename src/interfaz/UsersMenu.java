@@ -336,15 +336,15 @@ public class UsersMenu extends javax.swing.JFrame {
 
     private void jLabelReturnMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelReturnMenu1MouseClicked
         //show the mainmenu window
-        //MainMenu menu = new MainMenu();
-       // menu.setVisible(true);
+        Main menu = new Main();
+       menu.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_jLabelReturnMenu1MouseClicked
 
     private void jButtonEditUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditUserMouseClicked
-        //UserEdit edit = new UserEdit();
-       // edit.setVisible(true);
+        UserEdit edit = new UserEdit();
+       edit.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonEditUserMouseClicked
 
@@ -363,8 +363,8 @@ public class UsersMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEditUserActionPerformed
 
     private void jButtonDeleteUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDeleteUserMouseClicked
-      //  UserDelete delete = new UserDelete();
-       // delete.setVisible(true);
+        UserDelete delete = new UserDelete();
+        delete.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonDeleteUserMouseClicked
 
@@ -379,6 +379,8 @@ public class UsersMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDeleteUserMouseEntered
 
     private void jButtonDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteUserActionPerformed
+        
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDeleteUserActionPerformed
 
@@ -455,7 +457,7 @@ public class UsersMenu extends javax.swing.JFrame {
         PreparedStatement ps;
         ResultSet rs;
         
-        String query ="Select nombre, edad, fecha_ingreso FROM usuario";
+        String query ="Select nombre, edad, fecha_ingreso FROM usuarios";
         
         try {
             ConnectionMDB con = new ConnectionMDB();

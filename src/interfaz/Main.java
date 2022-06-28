@@ -19,6 +19,8 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        //center the window
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -36,6 +38,8 @@ public class Main extends javax.swing.JFrame {
         jLabelMinimize = new javax.swing.JLabel();
         jLabelLibro = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabelLibro1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,7 +87,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabelLibro.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabelLibro.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelLibro.setText("                                                                               Usuarios ");
+        jLabelLibro.setText("                                                                    Graficas ");
         jLabelLibro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabelLibro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabelLibro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -93,6 +97,19 @@ public class Main extends javax.swing.JFrame {
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/followers.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/followers.png"))); // NOI18N
+
+        jLabelLibro1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelLibro1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelLibro1.setText("                                                                Usuarios ");
+        jLabelLibro1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelLibro1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabelLibro1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelLibro1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,10 +125,20 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelClose))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelLibro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelLibro, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+                        .addGap(2, 2, 2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabelLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(jLabel2)
+                    .addContainerGap(676, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,11 +148,18 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addComponent(jLabelLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelLibro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1))
-                .addContainerGap(385, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabelLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(296, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(71, 71, 71)
+                    .addComponent(jLabel2)
+                    .addContainerGap(375, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -177,10 +211,18 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinimizeMouseExited
 
     private void jLabelLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLibroMouseClicked
-        UsersMenu userWindow = new UsersMenu();
+        ChartUser userWindow = new ChartUser();
         userWindow.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabelLibroMouseClicked
+
+    private void jLabelLibro1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLibro1MouseClicked
+
+UsersMenu userWindow = new UsersMenu();
+        userWindow.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelLibro1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -219,8 +261,10 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelLibro;
+    private javax.swing.JLabel jLabelLibro1;
     private javax.swing.JLabel jLabelMenu;
     private javax.swing.JLabel jLabelMinimize;
     private javax.swing.JPanel jPanel1;

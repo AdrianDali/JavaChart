@@ -28,8 +28,7 @@ public class UserRegis extends javax.swing.JFrame {
     public UserRegis() {
         initComponents();
         setLocationRelativeTo(null);
-        
-                Border bordeLogin = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black);
+         Border bordeLogin = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black);
         jLabelLogin1.setBorder(bordeLogin);
     }
 
@@ -318,7 +317,7 @@ public class UserRegis extends javax.swing.JFrame {
             ConnectionMDB con = new ConnectionMDB();
             Connection conexion = con.getConnection();
 
-            ps = conexion.prepareStatement("INSERT INTO usuario (id_area, nombre,edad,fecha_ingreso)VALUES(1,?, ?,?)");
+            ps = conexion.prepareStatement("INSERT INTO usuarios (nombre,edad,fecha_ingreso, disponible)VALUES(?, ?,?, TRUE)");
             ps.setString(1, name);
             ps.setInt(2, age);
             ps.setDate(3, fecha);
@@ -371,7 +370,11 @@ public class UserRegis extends javax.swing.JFrame {
         //show the mainmenu window
         //UsersMenu menu = new UsersMenu();
        // menu.setVisible(true);
+     
+          UsersMenu menu = new UsersMenu();
+        menu.setVisible(true);
         dispose();
+
 
     }//GEN-LAST:event_jLabelReturnMenuMouseClicked
 
