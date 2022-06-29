@@ -5,7 +5,6 @@
  */
 package interfaz;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ItemEvent;
@@ -18,6 +17,7 @@ import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.ConnectionMDB;
 import modelo.Usuario;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -31,15 +31,15 @@ import org.jfree.data.category.DefaultCategoryDataset;
  *
  * @author hermo
  */
-public class ChartUser extends javax.swing.JFrame {
+public class HistorialUsuario extends javax.swing.JFrame {
 
     /**
-     * Creates new form ChartUser
+     * Creates new form HistorialUsuario
      */
-    public ChartUser() {
+    public HistorialUsuario() {
         initComponents();
         Usuario user = new Usuario();
-
+        
         //jTextFieldUserId.setVisible(false);
         DefaultComboBoxModel modelBox = new DefaultComboBoxModel(user.mostrarUsuario());
 
@@ -47,7 +47,6 @@ public class ChartUser extends javax.swing.JFrame {
         AutoCompleteDecorator.decorate(jComboBoxUsers);
         //center the window
         this.setLocationRelativeTo(null);
-
     }
 
     /**
@@ -60,19 +59,30 @@ public class ChartUser extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabelReturnMenu = new javax.swing.JLabel();
         jLabelLogin = new javax.swing.JLabel();
         jLabelMinimize = new javax.swing.JLabel();
         jLabelClose = new javax.swing.JLabel();
+        jComboBoxUsers2 = new javax.swing.JComboBox<>();
         jComboBoxUsers = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jButtonDeleteUser1 = new javax.swing.JButton();
-        jLabelReturnMenu = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBoxProceso = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableUsers = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelReturnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/arrow-back-32x32-1518595.png"))); // NOI18N
+        jLabelReturnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelReturnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelReturnMenuMouseClicked(evt);
+            }
+        });
 
         jLabelLogin.setFont(new java.awt.Font("SansSerif", 1, 38)); // NOI18N
         jLabelLogin.setForeground(new java.awt.Color(0, 0, 0));
@@ -114,6 +124,17 @@ public class ChartUser extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxUsers2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxUsers2ItemStateChanged(evt);
+            }
+        });
+        jComboBoxUsers2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxUsers2ActionPerformed(evt);
+            }
+        });
+
         jComboBoxUsers.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxUsersItemStateChanged(evt);
@@ -129,46 +150,37 @@ public class ChartUser extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabel7.setText("Nombre: ");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
-        );
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLabel8.setText("Fecha: ");
 
-        jButtonDeleteUser1.setBackground(new java.awt.Color(0, 203, 255));
-        jButtonDeleteUser1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        jButtonDeleteUser1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonDeleteUser1.setText("Historial Usuario");
-        jButtonDeleteUser1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonDeleteUser1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonDeleteUser1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButtonDeleteUser1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButtonDeleteUser1MouseExited(evt);
+        jComboBoxProceso.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxProcesoItemStateChanged(evt);
             }
         });
-        jButtonDeleteUser1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxProceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteUser1ActionPerformed(evt);
+                jComboBoxProcesoActionPerformed(evt);
             }
         });
 
-        jLabelReturnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/arrow-back-32x32-1518595.png"))); // NOI18N
-        jLabelReturnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelReturnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelReturnMenuMouseClicked(evt);
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLabel9.setText("Proceso: ");
+
+        jTableUsers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
+        ));
+        jScrollPane1.setViewportView(jTableUsers);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -177,26 +189,29 @@ public class ChartUser extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelReturnMenu)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBoxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99)))
-                        .addGap(18, 181, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelReturnMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139)
                         .addComponent(jLabelMinimize)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelClose))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonDeleteUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxUsers2, 0, 190, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxProceso, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,14 +226,23 @@ public class ChartUser extends javax.swing.JFrame {
                             .addComponent(jLabelReturnMenu))
                         .addGap(5, 5, 5)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jComboBoxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jComboBoxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jComboBoxProceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxUsers2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonDeleteUser1)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,6 +258,13 @@ public class ChartUser extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabelReturnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelReturnMenuMouseClicked
+        //show the mainmenu window
+        UsersMenu menu = new UsersMenu();
+        menu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabelReturnMenuMouseClicked
 
     private void jLabelMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizeMouseClicked
         //minimize the frame with the minimizum label
@@ -269,11 +300,19 @@ public class ChartUser extends javax.swing.JFrame {
         jLabelClose.setForeground(Color.black);
     }//GEN-LAST:event_jLabelCloseMouseExited
 
+    private void jComboBoxUsers2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxUsers2ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxUsers2ItemStateChanged
+
+    private void jComboBoxUsers2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxUsers2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxUsers2ActionPerformed
+
     private void jComboBoxUsersItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxUsersItemStateChanged
         //si alguno de los paises es seleccionado
         if (evt.getStateChange() == ItemEvent.SELECTED) {
-             
-                repaint();
+
+            repaint();
             Usuario user = (Usuario) jComboBoxUsers.getSelectedItem();
             System.out.println("ID_USUARIO: " + user.getId_usuario());
 
@@ -282,47 +321,33 @@ public class ChartUser extends javax.swing.JFrame {
 
             //create a select query to heck if the username and the password exist in the database
             String query = "select p.nombre, p.hora_inicio, p.hora_termino from proceso as p join proceso_usuario as u \n"
-                    + "on  p.id_proceso = u.id_proceso where u.id_usuario = " + user.getId_usuario();
+            + "on  p.id_proceso = u.id_proceso where u.id_usuario = " + user.getId_usuario();
 
             try {
 
                 ConnectionMDB con = new ConnectionMDB();
                 Connection conexion = con.getConnection();
-                DefaultCategoryDataset datos = new DefaultCategoryDataset();
+                //DefaultCategoryDataset datos = new DefaultCategoryDataset();
 
                 ps = conexion.prepareStatement(query);
                 rs = ps.executeQuery();
                 Area area = new Area();
-
+                String nombre= "";
                 while (rs.next()) {
                     System.out.println("asdasdasdasd");
-                    System.out.println(String.valueOf(rs.getDate("p.hora_inicio")));
-                    datos.setValue(50, user.getNombre(), rs.getString("p.nombre"));
+                    //System.out.println(String.valueOf(rs.getDate("p.hora_inicio")));
+                   // datos.setValue(50, user.getNombre(), rs.getString("p.nombre"));
+                    nombre = rs.getString("p.nombre");
 
                 }
-
-                JFreeChart grafico_barras = ChartFactory.createBarChart3D(
-                        "Graficas de produccion",
-                        "Usuario",
-                        "produccion",
-                        datos,
-                        PlotOrientation.VERTICAL,
-                        true,
-                        true,
-                        false
-                );
-
-                ChartPanel panel = new ChartPanel(grafico_barras);
-                panel.setMouseWheelEnabled(true);
-                panel.setPreferredSize(new Dimension(400, 300));
-
-                jPanel2.setLayout(new BorderLayout());
-                jPanel2.add(panel, BorderLayout.NORTH);
-grafico_barras.fireChartChanged();
-               pack();
                 
-               //repaint();
+                DefaultComboBoxModel modelBox = new DefaultComboBoxModel(mostrarProceso(String.valueOf(jComboBoxUsers.getSelectedItem())));
+                jComboBoxProceso.setModel(modelBox); 
                 
+                //initTableUsers(String.valueOf(jComboBoxUsers.getSelectedItem()));
+
+
+                //repaint();
 
                 conexion.close();
 
@@ -337,31 +362,16 @@ grafico_barras.fireChartChanged();
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxUsersActionPerformed
 
-    private void jButtonDeleteUser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDeleteUser1MouseClicked
-        HistorialUsuario historial = new HistorialUsuario();
-        historial.setVisible(true);
-        dispose();
-            // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDeleteUser1MouseClicked
+    private void jComboBoxProcesoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxProcesoItemStateChanged
+        
+        initTableUsers(String.valueOf(jComboBoxUsers.getSelectedItem()), String.valueOf(jComboBoxProceso.getSelectedItem()));
 
-    private void jButtonDeleteUser1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDeleteUser1MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDeleteUser1MouseEntered
+    }//GEN-LAST:event_jComboBoxProcesoItemStateChanged
 
-    private void jButtonDeleteUser1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDeleteUser1MouseExited
+    private void jComboBoxProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxProcesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDeleteUser1MouseExited
-
-    private void jButtonDeleteUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteUser1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDeleteUser1ActionPerformed
-
-    private void jLabelReturnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelReturnMenuMouseClicked
-        //show the mainmenu window
-        UsersMenu menu = new UsersMenu();
-        menu.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jLabelReturnMenuMouseClicked
+    }//GEN-LAST:event_jComboBoxProcesoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,33 +390,106 @@ grafico_barras.fireChartChanged();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChartUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HistorialUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChartUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HistorialUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChartUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HistorialUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChartUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HistorialUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChartUser().setVisible(true);
+                new HistorialUsuario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonDeleteUser1;
+    private javax.swing.JComboBox<String> jComboBoxProceso;
     private javax.swing.JComboBox<String> jComboBoxUsers;
+    private javax.swing.JComboBox<String> jComboBoxUsers2;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelMinimize;
     private javax.swing.JLabel jLabelReturnMenu;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableUsers;
     // End of variables declaration//GEN-END:variables
+
+private void initTableUsers(String nombre, String proceso) {
+        DefaultTableModel model = new DefaultTableModel();
+        jTableUsers.setModel(model);
+        PreparedStatement ps;
+        ResultSet rs;
+        int contador = 0;
+        String query ="SELECT  u.nombre, p.hora FROM `usuarios`as u join proceso_usuario as p\n" +
+    "on p.id_usuario = u.id_usuario join proceso as pr on p.id_proceso = pr.id_proceso\n" +
+        "where u.nombre = '" + nombre + "' and pr.nombre = '" +proceso+ "'" ;
+        
+        try {
+            ConnectionMDB con = new ConnectionMDB();
+            Connection conexion = con.getConnection();
+            
+            ps = conexion.prepareStatement(query);
+            rs = ps.executeQuery();
+            System.out.println("Queri realizado");
+            
+            model.addColumn("Nombre");
+            model.addColumn("Hora");
+            
+            while(rs.next()){
+                Object fila[] = new Object[2];
+                for( int i = 0; i < 2; i++){
+                    System.out.println("pasdkbadfsd");
+                    
+                    fila[i] = rs.getObject(i+1);
+                    
+            }
+                model.addRow(fila);
+            }           
+                
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+
+    }
+public Vector<String> mostrarProceso(String nombre){
+    PreparedStatement ps = null;
+        ResultSet rs = null;
+        Vector<String> vectorUser = new Vector<String>();
+        Usuario user = null;
+        
+        try {
+            ConnectionMDB con = new ConnectionMDB();
+            Connection conexion = con.getConnection();
+            
+            ps = conexion.prepareStatement("SELECT  pr.nombre FROM `usuarios`as u join proceso_usuario as p\n" +
+"on p.id_usuario = u.id_usuario join proceso as pr on p.id_proceso = pr.id_proceso\n" +
+"where u.nombre = '" + nombre +"'");
+            rs = ps.executeQuery();
+            
+            //esto es para anadir un primer pais "seleccione pais" para que se vea bie
+            vectorUser.add("Seleccionar Proceso");
+                   
+            while (rs.next()) {  
+                user = new Usuario();
+            
+                vectorUser.add(rs.getString("pr.nombre"));
+                
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+            
+        }
+        return vectorUser;
+}
 }
