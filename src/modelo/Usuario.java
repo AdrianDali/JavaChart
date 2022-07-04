@@ -81,7 +81,7 @@ public class Usuario {
             while (rs.next()) {  
                 user = new Usuario();
             user.setId_usuario(rs.getInt("id_usuario"));
-            user.setNombre(rs.getString("nombre"));
+            user.setNombre(rs.getString("nombre") );
             user.setFecha_ingreso(rs.getDate("fecha_ingreso"));
             user.setEdad(rs.getInt("edad"));
             vectorUser.add(user);

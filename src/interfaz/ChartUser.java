@@ -73,6 +73,7 @@ public class ChartUser extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(700, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabelLogin.setFont(new java.awt.Font("SansSerif", 1, 38)); // NOI18N
         jLabelLogin.setForeground(new java.awt.Color(0, 0, 0));
@@ -189,7 +190,7 @@ public class ChartUser extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboBoxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(99, 99, 99)))
-                        .addGap(18, 181, Short.MAX_VALUE)
+                        .addGap(18, 469, Short.MAX_VALUE)
                         .addComponent(jLabelMinimize)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelClose))
@@ -273,7 +274,6 @@ public class ChartUser extends javax.swing.JFrame {
         //si alguno de los paises es seleccionado
         if (evt.getStateChange() == ItemEvent.SELECTED) {
              
-                repaint();
             Usuario user = (Usuario) jComboBoxUsers.getSelectedItem();
             System.out.println("ID_USUARIO: " + user.getId_usuario());
 
@@ -318,10 +318,11 @@ public class ChartUser extends javax.swing.JFrame {
 
                 jPanel2.setLayout(new BorderLayout());
                 jPanel2.add(panel, BorderLayout.NORTH);
-grafico_barras.fireChartChanged();
+               grafico_barras.fireChartChanged();
                pack();
-                
-               //repaint();
+               
+               repaint();
+               panel.updateUI();
                 
 
                 conexion.close();
@@ -358,7 +359,7 @@ grafico_barras.fireChartChanged();
 
     private void jLabelReturnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelReturnMenuMouseClicked
         //show the mainmenu window
-        UsersMenu menu = new UsersMenu();
+        UserMenu menu = new UserMenu();
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabelReturnMenuMouseClicked

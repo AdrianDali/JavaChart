@@ -6,7 +6,10 @@
 package interfaz;
 
 import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 
 /**
  *
@@ -19,6 +22,22 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        
+        
+         //create border for the username and password field
+        Border fieldBorder = BorderFactory.createMatteBorder(0, 0, 1, 1, Color.black );
+        jLabelGraficas.setBorder(fieldBorder);
+        
+        Border fieldBorder01 = BorderFactory.createMatteBorder(0, 0, 1, 1, Color.black );
+        jLabelMaquinas.setBorder(fieldBorder);
+        
+        
+        Border fieldBorder02 = BorderFactory.createMatteBorder(0, 0, 1, 1, Color.black );
+        jLabelUsuarios.setBorder(fieldBorder);
+        
+        Border fieldBorder03 = BorderFactory.createMatteBorder(0, 0, 1, 1, Color.black );
+        jLabelPiezas.setBorder(fieldBorder);
+        
         //center the window
         this.setLocationRelativeTo(null);
     }
@@ -36,14 +55,20 @@ public class Main extends javax.swing.JFrame {
         jLabelMenu = new javax.swing.JLabel();
         jLabelClose = new javax.swing.JLabel();
         jLabelMinimize = new javax.swing.JLabel();
-        jLabelLibro = new javax.swing.JLabel();
+        jLabelGraficas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabelLibro1 = new javax.swing.JLabel();
+        jLabelUsuarios = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabelMaquinas = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabelPiezas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabelMenu.setFont(new java.awt.Font("SansSerif", 0, 38)); // NOI18N
         jLabelMenu.setForeground(new java.awt.Color(0, 0, 0));
@@ -85,14 +110,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabelLibro.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabelLibro.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelLibro.setText("                                                                    Graficas ");
-        jLabelLibro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelLibro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabelLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelGraficas.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelGraficas.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelGraficas.setText("                                                                    Graficas ");
+        jLabelGraficas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelGraficas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabelGraficas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelLibroMouseClicked(evt);
+                jLabelGraficasMouseClicked(evt);
             }
         });
 
@@ -100,14 +125,40 @@ public class Main extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/followers.png"))); // NOI18N
 
-        jLabelLibro1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabelLibro1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelLibro1.setText("                                                                Usuarios ");
-        jLabelLibro1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelLibro1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabelLibro1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelUsuarios.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelUsuarios.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelUsuarios.setText("                                                                Usuarios ");
+        jLabelUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelUsuarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabelUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelLibro1MouseClicked(evt);
+                jLabelUsuariosMouseClicked(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/followers.png"))); // NOI18N
+
+        jLabelMaquinas.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelMaquinas.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelMaquinas.setText("                                                                Maquinas ");
+        jLabelMaquinas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelMaquinas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabelMaquinas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMaquinasMouseClicked(evt);
+            }
+        });
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/followers.png"))); // NOI18N
+
+        jLabelPiezas.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelPiezas.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelPiezas.setText("                                                                Piezas ");
+        jLabelPiezas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelPiezas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabelPiezas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPiezasMouseClicked(evt);
             }
         });
 
@@ -116,61 +167,73 @@ public class Main extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelMenu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelMinimize)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelClose))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelLibro, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
-                        .addGap(2, 2, 2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabelLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(924, Short.MAX_VALUE)
+                .addComponent(jLabelMinimize)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelClose)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(jLabel2)
-                    .addContainerGap(676, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelMaquinas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelPiezas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelGraficas, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(jLabelMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addComponent(jLabelLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(jLabelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabelUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabelMaquinas, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jLabelLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(296, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(71, 71, 71)
-                    .addComponent(jLabel2)
-                    .addContainerGap(375, Short.MAX_VALUE)))
+                    .addComponent(jLabelPiezas, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelGraficas, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -210,19 +273,30 @@ public class Main extends javax.swing.JFrame {
         jLabelMinimize.setForeground(Color.black);
     }//GEN-LAST:event_jLabelMinimizeMouseExited
 
-    private void jLabelLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLibroMouseClicked
+    private void jLabelGraficasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGraficasMouseClicked
         ChartUser userWindow = new ChartUser();
         userWindow.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jLabelLibroMouseClicked
+    }//GEN-LAST:event_jLabelGraficasMouseClicked
 
-    private void jLabelLibro1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLibro1MouseClicked
+    private void jLabelUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelUsuariosMouseClicked
 
-UsersMenu userWindow = new UsersMenu();
+UserMenu userWindow = new UserMenu();
         userWindow.setVisible(true);
         dispose();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabelLibro1MouseClicked
+    }//GEN-LAST:event_jLabelUsuariosMouseClicked
+
+    private void jLabelMaquinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMaquinasMouseClicked
+        MachineMenu maquina = new MachineMenu();
+        maquina.setVisible(true);
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelMaquinasMouseClicked
+
+    private void jLabelPiezasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPiezasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelPiezasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -262,11 +336,15 @@ UsersMenu userWindow = new UsersMenu();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelClose;
-    private javax.swing.JLabel jLabelLibro;
-    private javax.swing.JLabel jLabelLibro1;
+    private javax.swing.JLabel jLabelGraficas;
+    private javax.swing.JLabel jLabelMaquinas;
     private javax.swing.JLabel jLabelMenu;
     private javax.swing.JLabel jLabelMinimize;
+    private javax.swing.JLabel jLabelPiezas;
+    private javax.swing.JLabel jLabelUsuarios;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
