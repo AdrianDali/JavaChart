@@ -281,7 +281,7 @@ public class ChartUser extends javax.swing.JFrame {
             ResultSet rs;
 
             //create a select query to heck if the username and the password exist in the database
-            String query = "select p.nombre, p.hora_inicio, p.hora_termino from proceso as p join proceso_usuario as u \n"
+            String query = "select p.nombre, p.numero_piezas ,p.hora_inicio, p.hora_termino from proceso as p join proceso_usuario as u \n"
                     + "on  p.id_proceso = u.id_proceso where u.id_usuario = " + user.getId_usuario();
 
             try {
@@ -297,7 +297,7 @@ public class ChartUser extends javax.swing.JFrame {
                 while (rs.next()) {
                     System.out.println("asdasdasdasd");
                     System.out.println(String.valueOf(rs.getDate("p.hora_inicio")));
-                    datos.setValue(50, user.getNombre(), rs.getString("p.nombre"));
+                    datos.setValue(rs.getInt("p.numero_piezas"), user.getNombre(), rs.getString("p.nombre"));
 
                 }
 
